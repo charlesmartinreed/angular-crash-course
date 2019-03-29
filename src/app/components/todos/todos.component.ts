@@ -30,7 +30,7 @@ export class TodosComponent implements OnInit {
 			{
 				id: 3,
 				title: 'Todo Three',
-				completed: true
+				completed: false
 			}
 		]
   }

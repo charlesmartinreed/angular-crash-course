@@ -1,9 +1,10 @@
 <!-- ngClass is a directive; this allows us to dynamically set classes on a component-->
 <div [ngClass]="setClasses()">
 	<p>
-		<input type="checkbox" />
+		<!-- add events in angular with (), in the below examples, we use the change and click events and call functions, passing in the todo on which the event was detected -->
+		<input (change)="onToggle(todo)" type="checkbox" />
 		{{ todo. title }}
-		<button class="del">X</button>
+		<button (click)="onDelete(todo)" class="del">X</button>
 	</p>
 
 </div>
