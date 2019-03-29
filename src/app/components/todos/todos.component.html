@@ -1,6 +1,11 @@
 <h1>Todos</h1>
 
 <!-- loop through our Todo array -->
-<ul *ngFor="let todo of todos">
+<!-- <ul *ngFor="let todo of todos">
 	<li>{{ todo.title }}</li>
-</ul>
+</ul> -->
+
+<!-- instead of using a ul, we'll use our custom todo-item component! -->
+<app-todo-item *ngFor="let todo of todos" [todo]="todo">
+
+</app-todo-item>
