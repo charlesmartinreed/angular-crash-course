@@ -1,4 +1,9 @@
-<app-add-todo></app-add-todo>
+<!-- catch the emitted event -->
+<app-add-todo
+(addTodo)="addTodo($event)"
+>
+
+</app-add-todo>
 
 <!-- catch the emitted event -->
 <app-todo-item

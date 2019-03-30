@@ -1,6 +1,6 @@
 <!-- uses the imported forms module - see app.module.ts -->
-
-<form class="form">
+<!-- ngSubmit directive  -->
+<form class="form" (ngSubmit)=onSubmit()>
 	<!-- bind the title input to the title prop created in ts file using ngModel directive -->
 	<input type="text" name="title" [(ngModel)]="title" placeholder="Add a new Todo...">
 	<input type="submit" value="Submit" class="btn">

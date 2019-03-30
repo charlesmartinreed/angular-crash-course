@@ -35,4 +35,12 @@ export class TodosComponent implements OnInit {
 		this.todoService.deleteTodo(todo).subscribe();
 	}
 
+	addTodo(todo: Todo) {
+		// make a post request to the API service
+		this.todoService.addTodo(todo).subscribe(todo => {
+			// once we get our response back, add the todo to the collection, which will in turn update our UI
+			this.todos.push(todo);
+		})
+	}
+
 }
