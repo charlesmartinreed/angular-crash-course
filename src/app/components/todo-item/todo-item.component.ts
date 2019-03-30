@@ -1,4 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { TodoService } from '../../services/todo.service'
+import { Todo } from 'src/app/models/Todo';
 
 @Component({
   selector: 'app-todo-item',
@@ -9,7 +11,7 @@ export class TodoItemComponent implements OnInit {
 	// this input allows us to utilize our todos in the todoItem html - todo is an input with a type of Todo class.
 	@Input() todo: Todo;
 
-  constructor() { }
+  constructor(private todoService:TodoService) { }
 
   ngOnInit() {
   }
@@ -27,7 +29,10 @@ export class TodoItemComponent implements OnInit {
 
 	// event methods
 	onToggle(todo) {
+		// toggle in UI
 		todo.completed = !todo.completed;
+		// toggle on server
+		this.todoService.toggleCompleted(todo).subscribe(todo => console.log(todo));
 	}
 
 	onDelete(todo) {

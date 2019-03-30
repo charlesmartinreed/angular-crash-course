@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {TodoService } from '../../services/todo.service';
+import { TodoService } from '../../services/todo.service';
 
 import { Todo } from '../../models/Todo';
 
@@ -17,7 +17,14 @@ export class TodosComponent implements OnInit {
 
 	// lifecycle method
   ngOnInit() {
-		this.todos = this.todoService.getTodos();
+		// can't use this code with an http get, since that gives us an Observable (think promises)
+		// this.todos = this.todoService.getTodos();
+
+		// subscribe to the observable, a data stream
+		// similar to .then()
+		this.todoService.getTodos().subscribe(todos => {
+			this.todos = todos;
+		});
   }
 
 }
